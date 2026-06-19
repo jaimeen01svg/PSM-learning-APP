@@ -4,18 +4,14 @@ from pathlib import Path
 
 # ---------- PATH HELPERS ----------
 
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).parent  # folder where app.py lives
 
 def load_questions(unit_name: str):
-    # For Unit 2, use an absolute path to avoid FileNotFoundError on your system
-    if unit_name == "unit2_agr":
-        data_path = Path(r"C:\Users\mjmes\OneDrive\Desktop\PSM App\data\unit2_agr.json")
-    else:
-        data_path = BASE_DIR / "data" / f"{unit_name}.json"
+    # Path works both locally and on Streamlit Cloud
+    data_path = BASE_DIR / "data" / f"{unit_name}.json"
 
     with open(data_path, "r", encoding="utf-8") as f:
         return json.load(f)
-
 # ---------- UNIT 1: DEMOGRAPHIC CYCLE ----------
 
 QUESTIONS_U1 = load_questions("unit1")
