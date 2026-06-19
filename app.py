@@ -9,9 +9,9 @@ BASE_DIR = Path(__file__).parent  # folder where app.py lives
 def load_questions(unit_name: str):
     # Path works both locally and on Streamlit Cloud
     data_path = BASE_DIR / "data" / f"{unit_name}.json"
-
     with open(data_path, "r", encoding="utf-8") as f:
         return json.load(f)
+
 # ---------- UNIT 1: DEMOGRAPHIC CYCLE ----------
 
 QUESTIONS_U1 = load_questions("unit1")
@@ -339,7 +339,9 @@ def render_unit2():
     st.caption("Mode: Learn & quiz · ~2 minutes")
     st.progress((st.session_state.current_q_u2 + 1) / len(QUESTIONS_U2))
 
-    st.info(HINTS_U2["core"])
+    # Show core hint only before the first question
+    if st.session_state.current_q_u2 == 0:
+        st.info(HINTS_U2["core"])
 
     q = QUESTIONS_U2[st.session_state.current_q_u2]
 
