@@ -60,6 +60,7 @@ def reset_unit2_state():
     st.session_state.selected_answers_u2 = {}
     st.session_state.run_id_u2 = 0
     st.session_state.finished_u2 = False
+    st.session_state.hint_shown_u2 = False
 
 # ---------- INITIAL GLOBAL STATE ----------
 
@@ -87,6 +88,7 @@ for key, default in [
     ("selected_answers_u2", {}),
     ("run_id_u2", 0),
     ("finished_u2", False),
+    ("hint_shown_u2", False),
 ]:
     if key not in st.session_state:
         st.session_state[key] = default
@@ -216,6 +218,7 @@ def render_unit1():
 
         st.subheader(f"Item {st.session_state.current_q + 1} of {len(QUESTIONS_U1)}")
 
+        # Hint screen
         if not st.session_state.hint_shown:
             if hint_key:
                 st.info(STAGE_HINTS_U1[hint_key])
@@ -232,6 +235,7 @@ def render_unit1():
             st.markdown("</div>", unsafe_allow_html=True)
             st.stop()
 
+        # Question + options
         st.write(q["question"])
 
         radio_key = f"u1_radio_{st.session_state.run_id}"
@@ -339,10 +343,6 @@ def render_unit2():
     st.caption("Mode: Learn & quiz · ~2 minutes")
     st.progress((st.session_state.current_q_u2 + 1) / len(QUESTIONS_U2))
 
-    # Show core hint only before the first question
-    if st.session_state.current_q_u2 == 0:
-        st.info(HINTS_U2["core"])
-
     q = QUESTIONS_U2[st.session_state.current_q_u2]
 
     with st.container():
@@ -355,10 +355,28 @@ def render_unit2():
 
         st.subheader(f"Item {st.session_state.current_q_u2 + 1} of {len(QUESTIONS_U2)}")
 
-        cue = get_u2_cue(q["id"])
-        if cue:
-            st.caption(cue)
+        # Hint screen (like Unit 1)
+        if not st.session_state.hint_shown_u2:
+            st.info(HINTS_U2["core"])
+            cue = get_u2_cue(q["id"])
+            if cue:
+                st.caption(cue)
 
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button("Got it, show question"):
+                    st.session_state.hint_shown_u2 = True
+                    st.rerun()
+            with col2:
+                if st.button("Back to home"):
+                    reset_unit2_state()
+                    st.session_state.page = "home"
+                    st.rerun()
+
+            st.markdown("</div>", unsafe_allow_html=True)
+            st.stop()
+
+        # Question + options
         st.write(q["question"])
 
         radio_key = f"u2_radio_{st.session_state.run_id_u2}"
@@ -392,6 +410,7 @@ def render_unit2():
                 if st.button("Next"):
                     st.session_state.answered_u2 = False
                     st.session_state.current_q_u2 += 1
+                    st.session_state.hint_shown_u2 = False
                     if st.session_state.current_q_u2 >= len(QUESTIONS_U2):
                         st.session_state.finished_u2 = True
                     st.session_state.run_id_u2 += 1
