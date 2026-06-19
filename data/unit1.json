@@ -1,0 +1,50 @@
+[
+  {
+    "id": "U1_S1_Q1",
+    "question": "In which stage of the demographic cycle are both birth rate and death rate high, resulting in a relatively stable and low population growth?",
+    "options": [
+      "High stationary stage",
+      "Early expanding stage",
+      "Late expanding stage",
+      "Low stationary stage"
+    ],
+    "correct_index": 0,
+    "explanation": "In the high stationary stage, both birth rate and death rate are high, so population size remains nearly stable with very slow growth."
+  },
+  {
+    "id": "U1_S2_Q1",
+    "question": "A country introduces better sanitation, vaccination and food security. Death rate falls rapidly, but birth rate remains high. Which stage of the demographic cycle does this describe?",
+    "options": [
+      "High stationary stage",
+      "Early expanding stage",
+      "Late expanding stage",
+      "Low stationary stage"
+    ],
+    "correct_index": 1,
+    "explanation": "In the early expanding stage, death rate falls quickly due to improvements in public health, while birth rate stays high, leading to rapid population growth."
+  },
+  {
+    "id": "U1_S3_Q1",
+    "question": "In which stage of the demographic cycle does the birth rate begin to decline, while death rate remains low and stable, causing population to grow but at a slower rate?",
+    "options": [
+      "High stationary stage",
+      "Early expanding stage",
+      "Late expanding stage",
+      "Low stationary stage"
+    ],
+    "correct_index": 2,
+    "explanation": "In the late expanding stage, birth rate starts to fall due to socio-economic development, while death rate is already low, so population continues to grow but more slowly."
+  },
+  {
+    "id": "U1_S4_Q1",
+    "question": "A highly developed country has both low birth rate and low death rate, with a large but almost stable population. Which stage of the demographic cycle is this?",
+    "options": [
+      "High stationary stage",
+      "Early expanding stage",
+      "Late expanding stage",
+      "Low stationary stage"
+    ],
+    "correct_index": 3,
+    "explanation": "In the low stationary stage, both birth rate and death rate are low, resulting in a large population that grows very slowly or is almost stable."
+  }
+]

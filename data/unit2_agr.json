@@ -1,0 +1,45 @@
+[
+  {
+    "id": "U2_AGR_Q1",
+    "question": "If crude birth rate (CBR) is 30 per 1000 and crude death rate (CDR) is 10 per 1000, what is the annual growth rate (AGR)?",
+    "options": ["1%", "2%", "3%", "4%"],
+    "correct_index": 1,
+    "explanation": "AGR = (CBR − CDR)/10. Here (30 − 10)/10 = 20/10 = 2% per year."
+  },
+  {
+    "id": "U2_AGR_Q2",
+    "question": "A population has CBR 25 per 1000 and CDR 20 per 1000. What is the AGR category?",
+    "options": [
+      "Slow growing (around 0.5%)",
+      "Moderate growing (0.5–1%)",
+      "Rapid growing (1–1.5%)",
+      "Very rapid / explosive (≥ 2%)"
+    ],
+    "correct_index": 0,
+    "explanation": "AGR = (25 − 20)/10 = 0.5%. That lies at the lower end of slow growth in the AGR table."
+  },
+  {
+    "id": "U2_AGR_Q3",
+    "question": "In a population, AGR is 2%. Which of the following best describes this growth?",
+    "options": [
+      "Slow growth",
+      "Moderate growth",
+      "Rapid growth",
+      "Very rapid / explosive growth"
+    ],
+    "correct_index": 3,
+    "explanation": "AGR around 2% corresponds to very rapid or explosive growth in standard demographic classification."
+  },
+  {
+    "id": "U2_AGR_Q4",
+    "question": "Which combination of CBR and CDR will give the highest annual growth rate?",
+    "options": [
+      "CBR 20, CDR 15",
+      "CBR 30, CDR 20",
+      "CBR 35, CDR 30",
+      "CBR 25, CDR 24"
+    ],
+    "correct_index": 1,
+    "explanation": "AGR depends on (CBR − CDR). Option B has the largest difference (30 − 20 = 10), so highest AGR."
+  }
+]
